@@ -1,0 +1,37 @@
+﻿@model BookHaven.Models.BookOrder
+
+<h2>DisplayFinalDue</h2>
+
+@using (Html.BeginForm("DisplayFinalDue", "Book", FormMethod.Post))
+{
+    <h4>Book Order</h4>
+    <hr />
+    <div>
+        Enter customer name: @Html.EditorFor(m => m.CustomerName)
+    </div>
+
+    <div>
+        Select book type:
+        Fiction @Html.RadioButtonFor(m => m.BookType, "Fiction")
+        Non-Fiction @Html.RadioButtonFor(m => m.BookType, "Non-Fiction")
+        Comics @Html.RadioButtonFor(m => m.BookType, "Comics")
+    </div>
+
+    <div>
+        Select extra options:
+        Gift Wrap @Html.CheckBoxFor(m => m.GiftWrap, false)
+        Express Delivery @Html.CheckBoxFor(m => m.ExpressDelivery, false)
+    </div>
+
+    <div>
+        Enter the number of books required: @Html.EditorFor(m => m.Qty)
+    </div>
+
+    <div>Final Cost is: @Html.DisplayFor(m => m.FinalCost)</div>
+
+    <div>
+        <input type="submit" value="Calculate" />
+    </div>
+}
+
+
